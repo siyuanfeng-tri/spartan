@@ -1,0 +1,41 @@
+group "0.sim" {
+
+  cmd "0.kuka_gripper_simulation" {
+    exec = "$SPARTAN_BUILD_DIR/drake/drake/examples/kuka_iiwa_arm/iiwa_wsg_simulation";
+    host = "localhost";
+  }
+
+  cmd "1.kuka_plan_runner" {
+    exec = "$SPARTAN_BUILD_DIR/drake/drake/examples/kuka_iiwa_arm/kuka_plan_runner";
+    host = "localhost";
+  }
+
+  cmd "2.state_lcm_translator" {
+    exec = "directorPython $SPARTAN_SOURCE_DIR/apps/iiwa/kuka_iiwa_state_translator.py";
+    host = "localhost";
+  }
+}
+
+group "1.tools" {
+
+  cmd "0.director-ik-app" {
+    exec = "drake-visualizer --script $SPARTAN_SOURCE_DIR/apps/iiwa/iiwaManipApp.py --bot-config  $SPARTAN_SOURCE_DIR/apps/iiwa/iiwaManip.cfg --director-config $SPARTAN_SOURCE_DIR/models/iiwa/director/director_config_sim.json";
+    host = "localhost";
+  }
+
+  cmd "1.drake-visualizer" {
+    exec = "drake-visualizer";
+    host = "localhost";
+  }
+
+  cmd "2.signal-scope" {
+    exec = "signal-scope $SPARTAN_SOURCE_DIR/config/iiwa/kuka_iiwa_signal_scope.py";
+    host = "localhost";
+  }
+
+}
+
+cmd "2.kuka_ik_demo" {
+    exec = "build/drake/examples/kuka_iiwa_arm/kuka_ik_demo";
+    host = "localhost";
+}

@@ -20,16 +20,24 @@ import numpy as np
 
 def loadMomapModel(name, meshFile):
     momapObjectsRepo = os.path.expanduser('~/catkin_ws/src/perception_deps/objects')
-    meshFileName = os.path.join(momapObjectsRepo, meshFile)
+    return loadMeshAffordance(name, os.path.join(momapObjectsRepo, meshFile))
 
+
+def loadSpartanModel(name, meshFile):
+    objectsDir = os.path.join(os.environ['SPARTAN_SOURCE_DIR'], 'models/objects')
+    return loadMeshAffordance(name, os.path.join(objectsDir, meshFile))
+
+
+def loadMeshAffordance(name, filename):
     return affordanceManager.newAffordanceFromDescription(
       dict(classname='MeshAffordanceItem', Name=name,
            pose=transformUtils.poseFromTransform(vtk.vtkTransform()),
-           Filename=meshFileName))
+           Filename=filename))
 
 
 def loadBlueFunnel():
-    obj = loadMomapModel('blue funnel', 'meshes/blue_funnel.stl')
+    #obj = loadMomapModel('blue funnel', 'meshes/blue_funnel.obj')
+    obj = loadSpartanModel('blue funnel', 'blue_funnel.obj')
     setupTfFrameSync(obj, 'bfunnel')
     return obj
 

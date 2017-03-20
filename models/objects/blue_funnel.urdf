@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<robot name="affordance_environment">
+
+  <link name="base_link">
+  </link>
+  <link name="blue_funnel">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.15" />
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="blue_funnel.obj" scale="1.0 1.0 1.0"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0.0 0.5 1.0 1"/>
+      </material>
+    </visual>
+
+<!--
+    <visual>
+      <origin xyz="0.0 -0.03 0.07" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.08 0.08 0.01" />
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <visual>
+      <origin xyz="0.0 -0.03 -0.07" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.08 0.08 0.01" />
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <visual>
+      <origin xyz="-.04 -0.03 0.0" rpy="0.0 0.0 0"/>
+      <geometry>
+        <box size="0.01 0.08 0.145" />
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <visual>
+      <origin xyz="0.04 -0.03 0.0" rpy="0.0 0.0 0"/>
+      <geometry>
+        <box size="0.01 0.06 0.145" />
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+
+    <visual>
+      <origin xyz="0.0 0.01 0.0" rpy="0.0 0.0 0"/>
+      <geometry>
+        <box size="0.08 0.01 0.14" />
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+
+    <visual>
+      <origin xyz="0 0.04 -0.025" rpy="1.57 0 0" />
+      <geometry>
+        <cylinder length="0.05" radius="0.015" />
+      </geometry>
+      <material name="blue"/>
+    </visual>
+-->
+
+
+
+    <collision>
+      <origin xyz="0.0 -0.03 0.07" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.08 0.08 0.01" />
+      </geometry>
+      <material name="blue"/>
+    </collision>
+
+    <collision>
+      <origin xyz="0.0 -0.03 -0.07" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.08 0.08 0.01" />
+      </geometry>
+      <material name="blue"/>
+    </collision>
+
+    <collision>
+      <origin xyz="-.04 -0.03 0.0" rpy="0.0 0.0 0"/>
+      <geometry>
+        <box size="0.01 0.08 0.145" />
+      </geometry>
+      <material name="blue"/>
+    </collision>
+
+    <collision>
+      <origin xyz="0.04 -0.03 0.0" rpy="0.0 0.0 0"/>
+      <geometry>
+        <box size="0.01 0.06 0.145" />
+      </geometry>
+      <material name="blue"/>
+    </collision>
+
+
+    <collision>
+      <origin xyz="0.0 0.01 0.0" rpy="0.0 0.0 0"/>
+      <geometry>
+        <box size="0.08 0.01 0.14" />
+      </geometry>
+      <material name="blue"/>
+    </collision>
+
+
+    <collision>
+      <origin xyz="0 0.04 -0.025" rpy="1.57 0 0" />
+      <geometry>
+        <cylinder length="0.05" radius="0.015" />
+      </geometry>
+      <material name="blue"/>
+    </collision>
+
+
+  </link>
+
+  <joint name="funnel_to_base" type="fixed">
+   <origin xyz="-0.12 0 0.1" rpy="0.1 0.0 0.0"/>
+   <parent link="base_link"/>
+   <child link="blue_funnel"/>
+  </joint>
+
+
+
+</robot>

@@ -27,9 +27,12 @@ def onIiwaStatus(msg):
     jointNames = armJointNames + fingerJointNames
     jointPositions = armJointPositions + fingerJointPositions
 
+    # from iiwa_world_demo.cc
+    baseXYZ = [-0.243716, -0.625087, 0.736 + 0.057 / 2]
+
     m = lcmbotcore.robot_state_t()
     m.utime = msg.utime
-    m.pose = robotstate.getPoseLCMFromXYZRPY([0,0,0], [0,0,0])
+    m.pose = robotstate.getPoseLCMFromXYZRPY(baseXYZ, [0,0,0])
     m.twist = lcmbotcore.twist_t()
     m.twist.linear_velocity = lcmbotcore.vector_3d_t()
     m.twist.angular_velocity = lcmbotcore.vector_3d_t()
