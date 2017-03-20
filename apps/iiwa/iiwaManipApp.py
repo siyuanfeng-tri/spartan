@@ -285,15 +285,15 @@ if havePerceptionDrivers():
 
     ip = mytaskpanel.iiwaplanning
 
-    #affordanceName = 'box'
-    #ip.spawnAffordance(affordanceName)
+    affordanceName = 'blue funnel'
+    ip.spawnAffordance(affordanceName)
     #ip.addGraspFrames(affordanceName)
     #ip.makeBestPlan(affordanceName)
     #addToolBarAction('Random test', ip.randomTest)
 
 
-    #syncTimer = makeDrakeSimObjectSync('blue_funnel geometry data', 'blue funnel')
-    #syncTimer.start()
+    syncTimer = makeDrakeSimObjectSync('blue_funnel geometry data', 'blue funnel')
+    syncTimer.start()
 
 
 app.restoreDefaultWindowState()
