@@ -155,11 +155,13 @@ endif()
 if (WITH_IIWA_DRIVER)
 
   set(IIWA_DRIVER_GIT_REPOSITORY
-	"git@github.com:RobotLocomotion/drake-iiwa-driver.git"
+    #"git@github.com:RobotLocomotion/drake-iiwa-driver.git"
+  "git@github.com:siyuanfeng-tri/drake-iiwa-driver.git"
 	CACHE STRING
 	"Location of drake-iiwa-driver repo including kuka-fri sources")
   set(IIWA_DRIVER_GIT_TAG
-	"19e20aa"
+    #"19e20aa"
+	"3084b6a"
 	CACHE STRING
 	"Build tag of drake-iiwa-driver repo")
 
